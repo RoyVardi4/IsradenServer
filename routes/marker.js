@@ -42,10 +42,15 @@ router.get('/events', eventsHandler);
 
 // POST
 router.post('/', async (req, res) => {
-  const newMarker = req.body;
-  markers.push(newMarker);
+  const newMarker = req.body
+  newMarker.date = new Date()
+  markers.push(newMarker)
   res.json(newMarker)
-  return sendEventsToAll(newMarker);
+  return sendEventsToAll(newMarker)
+})
+
+router.get('/', async (req, res) => {
+  res.json(markers)
 })
 
 
