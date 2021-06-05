@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 
 // Routes
 import markerRouter from './routes/marker.js'
+import layersRouter from './routes/layers.js'
 
 const app = Express()
 
@@ -27,6 +28,8 @@ app.use(function(req, res, next) {
 
 // Router
 app.use('/marker', markerRouter)
+app.use('/layers', layersRouter)
+
 app.use(Express.json())
 
 app.listen(port, () => console.log("Listening on port " + port))
